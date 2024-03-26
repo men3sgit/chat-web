@@ -9,8 +9,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
     @Id
     private Long id;
-    private String username;
+    private String email;
+    private String password;
+    private String appName;
     private String fullName;
     private Status status;
+
+    private String roles; // TODO javatechie
+
+    private boolean locked;
 
 }
