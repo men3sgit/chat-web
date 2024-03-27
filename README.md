@@ -1,4 +1,4 @@
-# Project Name
+# Linking
 
 One On One Chat application | Spring Boot & WebSocket | By Menes
 
