@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class VerificationToken implements Token {
     private Long id;
     private Long userId;
-    private LocalDateTime expiry;
+    private long expiry;
     private String token;
 
     @Override
@@ -30,12 +30,12 @@ public class VerificationToken implements Token {
     }
 
     @Override
-    public LocalDateTime getExpiryDate() {
+    public long getExpiryDate() {
         return this.expiry;
     }
 
     @Override
-    public void setExpiryDate(LocalDateTime expiryDate) {
+    public void setExpiryDate(long expiryDate) {
         this.expiry = expiryDate;
     }
 
