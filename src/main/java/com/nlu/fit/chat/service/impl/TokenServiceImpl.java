@@ -1,6 +1,7 @@
 package com.nlu.fit.chat.service.impl;
 
 import com.nlu.fit.chat.documents.token.Token;
+import com.nlu.fit.chat.exceptions.InvalidTokenException;
 import com.nlu.fit.chat.respository.TokenRepository;
 import com.nlu.fit.chat.service.TokenService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class TokenServiceImpl implements TokenService {
     private final TokenRepository tokenRepository;
+
     @Override
     public String generateToken(Token token) {
         token.setToken(UUID.randomUUID().toString());
@@ -31,7 +33,7 @@ public class TokenServiceImpl implements TokenService {
 
     @Override
     public Token getToken(String token) {
-        return null;
+        return tokenRepository.findByToken(token).orElseThrow(() -> new InvalidTokenException("Token invalid"));
     }
 
     @Override

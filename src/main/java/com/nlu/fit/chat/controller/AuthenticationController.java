@@ -5,10 +5,7 @@ import com.nlu.fit.chat.payload.registration.req.RegistrationRequest;
 import com.nlu.fit.chat.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,6 +18,12 @@ public class AuthenticationController {
     public ApiResponse<?> register(@RequestBody @Validated RegistrationRequest request) {
         var response = authenticationService.addNewUser(request);
         return new ApiResponse<>(response);
+    }
+
+    @GetMapping(path ="/verify")
+    public ApiResponse<?> verify(@RequestParam String token){
+
+        return null;
     }
 
 
